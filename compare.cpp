@@ -19,9 +19,9 @@ using namespace std;
 
 int main()
 {
-	string line, eastSt, westSt, start_date, end_date, date,result;
+	string line, eastSt, westSt, start_date, end_date, date, result;
 	double EastElevation, WestElevation;
-	int start = 0;
+	int starting = 0;
 
 	ifstream fin("Current_Reservoir_Levels.tsv");
 	if (fin.fail()) {
@@ -40,14 +40,15 @@ int main()
 		fin.ignore(INT_MAX, '\n'); //skips to the end of line, 
 							  //ignorring the remaining columns 
 		if (date == start_date) {
-			start == 1;
+			starting = 1;
 		}
-		if (start == 1) {
+		if (starting == 1) {
+
 			if (EastElevation > WestElevation) {
-				result = "East";
+				result = " East";
 			}
 			if (EastElevation < WestElevation) {
-				result = "West";
+				result = " West";
 			}
 			if (EastElevation == WestElevation) {
 				result = " Equal";
@@ -59,8 +60,6 @@ int main()
 		}
 	}
 }
-	
-   
    
 
 
