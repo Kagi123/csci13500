@@ -1,13 +1,13 @@
-﻿/*
-Author: sangheum Park
-Course: CSCI-13500
-Instructor: Tong Yi
-Assignment: Positive or Zero or Negative.cpp
+﻿
+//Author: sangheum Park
+//Course: CSCI-13500
+//Instructor: Tong Yi
+//Assignment: Positive or Zero or Negative.cpp
 
-asks the user to input 
-find the number is
-Positive or Zero or Negative
-*/
+//asks the user to input 
+//find the number is
+//Positive or Zero or Negative
+
 
 #include <iostream>
 #include <fstream>
