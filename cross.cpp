@@ -3,8 +3,12 @@ Author: sangheum Park
 Course: CSCI-13500
 Instructor: Tong Yi
 Assignment: cross.cpp
-asks the user to input the shape size,
-and prints a diagonal cross of that dimension.
+
+asks the user to input
+ the shape size,
+and prints a 
+diagonal cross 
+of that dimension.
 */
 
 #include <string>
