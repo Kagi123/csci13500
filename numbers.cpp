@@ -10,47 +10,28 @@ isprime
 nextprime
 countprime
 is a twin prime?
-next twin prime
+Largest twin prime in range
 */
 #include<iostream>
 
 using namespace std;
 
 bool isDivisibleBy(int n, int d){
-  if(d!=0){
-  if(n%d == 0 ) return true;
-  else return false;
-  } else return false;
+  return n%d == 0;
   
 }
 bool isPrime(int n){
-  int divide_num=0;
-  for(int i=1; i<n; i++){
-    if(n%i == 0){
-      divide_num += 1;
-    }
-  }
-  if(divide_num == 1) return true;
-  else return false;
+   for(int i = 2; i < n-1; i++)
+        if(n % i == 0) return false;
+    return true;
 }
 
 int nextPrime(int n){
-  int j = 1;
-  int answer = 0;
+  int i = 1;
   while(true){
-    int divide_num=0;
-    for(int i=1; i<n+j; i++){
-    if((n+j)%i == 0){
-      divide_num += 1;
-      }
+  if(isPrime(n+i)) return n+i;
+    else i++;
     }
-    if (divide_num == 1) {
-      answer = n+j;
-      break;
-    } else j++;
-  }
-
-  return answer;
 }
 
 int countPrimes(int a, int b){
@@ -70,19 +51,30 @@ bool isTwinPrime(int n){
 }
 
 int nextTwinPrime(int n){
-  int answer = 0;
-  int j=0;
+  int i=1;
   while(true){
-    if(isTwinPrime(nextPrime(n+j)) == true){
-      answer = nextPrime(n+j);
-      break;
-    } else j++;
+    if(isTwinPrime(n+i)) return n+i;
+    else i++;
   }
-  return answer;
 }
+
+int largestTwinPrime(int a, int b){
+  int twinprime = -1;
+  for(int i =a; i<b+1; i++){
+      if(isTwinPrime(i)== true) twinprime = i;
+  }
+  return twinprime;
+}
+
+
 int main(){
-  int a;
-  cout<<"Enter a integer: "<<endl;
-    cin >> a;
-  cout<<nextTwinPrime(a);
+  int a,b;
+  cout<<"Enter a integer1: "<<endl;
+  cin>>a;
+  cout<<"Enter a integer2: "<<endl;
+  cin >> b;
+  if(largestTwinPrime(a,b) == -1) {
+    cout<<"There's no largestTwinPrime"<<endl;
+  } else
+  cout<<"lagestTwinPrime: "<<largestTwinPrime(a,b);
 }
