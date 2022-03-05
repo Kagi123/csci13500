@@ -8,6 +8,9 @@ numbers.cpp
 isdivisibleby
 isprime
 nextprime
+countprime
+is a twin prime?
+next twin prime
 */
 #include<iostream>
 
@@ -48,12 +51,38 @@ int nextPrime(int n){
   }
 
   return answer;
-  
 }
 
+int countPrimes(int a, int b){
+  int prime_num = 0;
+  for(int i =a; i<b+1; i++){
+      if(isPrime(i)==true) prime_num +=1;
+  }
+  return prime_num;
+}
+
+bool isTwinPrime(int n){
+  if(isPrime(n) == true){
+    if(isPrime(n-2) == true || isPrime(n+2) == true )
+      return true;
+    else return false;
+  } else return false;
+}
+
+int nextTwinPrime(int n){
+  int answer = 0;
+  int j=0;
+  while(true){
+    if(isTwinPrime(nextPrime(n+j)) == true){
+      answer = nextPrime(n+j);
+      break;
+    } else j++;
+  }
+  return answer;
+}
 int main(){
-  int num;
-  cout<<"Enter integer: "<<endl;
-  cin >> num;
-  cout<< "next Prime is: "<< nextPrime(num);
+  int a;
+  cout<<"Enter a integer: "<<endl;
+    cin >> a;
+  cout<<nextTwinPrime(a);
 }
