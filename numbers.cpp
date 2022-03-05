@@ -20,15 +20,20 @@ bool isDivisibleBy(int n, int d){
   } else return false;
   
 }
+bool isPrime(int n){
+  int divide_num=0;
+  for(int i=1; i<n; i++){
+    if(n%i == 0){
+      divide_num += 1;
+    }
+  }
+  if(divide_num == 1) return true;
+  else return false;
+}
 
 int main(){
   int integer1,integer2;
   cout<<"Enter interger1: "<<endl;
   cin >> integer1;
-  cout<<"Enter integer2: "<<endl;
-  cin >> integer2;
-
-  if(isDivisibleBy(integer1,integer2) == true)
-    cout<<"Yes"<<endl;
-    else cout << "No"<<endl;
+  cout<< isPrime(integer1);
 }
