@@ -24,7 +24,7 @@ bool isPrime(int n){
 }
 
 bool isTwinPrime(int n){
-  if(isPrime(n) == true && ()){
+  if(isPrime(n) == true){
     if(isPrime(n-2) == true || isPrime(n+2) == true )
       return true;
     else return false;
