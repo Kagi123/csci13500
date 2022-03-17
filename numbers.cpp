@@ -24,9 +24,11 @@ bool isPrime(int n){
 }
 
 bool isTwinPrime(int n){
-  if(isPrime(n) == true && (isPrime(n-2) == true || isPrime(n+2) == true))
+  if(isPrime(n) == true && ()){
+    if(isPrime(n-2) == true || isPrime(n+2) == true )
       return true;
-  else return false;
+    else return false;
+  } else return false;
 }
 
 int largestTwinPrime(int a, int b){
@@ -35,4 +37,8 @@ int largestTwinPrime(int a, int b){
       if(isTwinPrime(i)== true) twinprime = i;
   }
   return twinprime;
+}
+
+int main(){
+  cout<<largestTwinPrime(0,15485661);
 }
