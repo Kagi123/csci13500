@@ -17,6 +17,12 @@ Largest twin prime in range
 
 using namespace std;
 
+bool isDivisibleBy(int n, int d);
+int nextPrime(int n);
+bool isTwinPrime(int n);
+int nextTwinPrime(int n);
+int largestTwinPrime(int a, int b);
+
 bool isDivisibleBy(int n, int d){
   return n%d == 0;
   
@@ -33,6 +39,7 @@ int nextPrime(int n){
   if(isPrime(n+i)) return n+i;
     else i++;
     }
+return -1;
 }
 
 int countPrimes(int a, int b){
@@ -57,6 +64,7 @@ int nextTwinPrime(int n){
     if(isTwinPrime(n+i)) return n+i;
     else i++;
   }
+return -1;
 }
 
 int largestTwinPrime(int a, int b){
@@ -65,4 +73,11 @@ int largestTwinPrime(int a, int b){
       if(isTwinPrime(i)== true) twinprime = i;
   }
   return twinprime;
+}
+int main() {
+cout<<largestTwinPrime(7,25)<<endl;
+cout<<largestTwinPrime(3,15)<<endl;
+cout<<largestTwinPrime(45,60)<<endl;
+cout<<largestTwinPrime(0, 15485661)<<endl;
+
 }

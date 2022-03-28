@@ -1,9 +1,8 @@
-﻿/*
+/*
 Author: sangheum Park
 Course: CSCI-13500
 Instructor: Tong Yi
 Assignment: decryption.cpp
-
 uses the above functions 
 to demonstrate encryption 
 and decryption 
