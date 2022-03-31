@@ -2,11 +2,11 @@
 Author: sangheum Park
 Course: CSCI-13500
 Instructor: Tong Yi
-Assignment: invert-half.cpp
+Assignment: scale.cpp
 
-inverts the colors 
-only in the right 
-half of the picture.
+ Scale the original 
+picture to 200% 
+of its size.
 */
 
 #include <iostream>
@@ -85,8 +85,7 @@ void writeImage(int image[MAX_H][MAX_W], int height, int width) {
 }
 
 int main() {
-
-	int img[MAX_H][MAX_W];
+  int img[MAX_H][MAX_W];
 	int h, w;
 
 	readImage(img, h, w); // read it from the file "inImage.pgm"
@@ -98,19 +97,16 @@ int main() {
 	// for example we copy its contents into a new array
 	int out[MAX_H][MAX_W];
 
-	for(int row = 0; row < h; row++) {
-		for(int col = 0; col < w; col++) {
-      if( col > w/2) {
-        out[row][col] = 255 - img[row][col];
+	for (int row = 0; row < h; row++){
+    for (int col = 0; col < w; col++){
+		    out[row*2][col*2] = img[row][col];
+      out[row*2+1][col*2] = img[row][col];
+      out[row*2][col*2+1] = img[row][col];
+      out[row*2+1][col*2+1] = img[row][col];
       }
-      else {
-        out[row][col] = img[row][col];
-      }
-			
-		}
-	}
-
+		    
+			    
+  }
 	// and save this new image to file "outImage.pgm"
-	writeImage(out, h, w);
-
+	writeImage(out, h*2 , w*2);
 }
