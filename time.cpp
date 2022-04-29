@@ -4,9 +4,11 @@ Course: CSCI-13500
 Instructor: Tong Yi
 Assignment: time.cpp
 
-define
-class
-time
+The function should 
+create and return
+a new moment of time 
+that is min minutes 
+after time0
 */
 
 #include <iostream>
@@ -35,20 +37,26 @@ int minutesUntil(Time earlier, Time later){
   return result;
 }
 
+Time addMinutes(Time time0, int min){
+  time0.h += min/60;
+  min = min%60;
+  if(min+ time0.m >=60){
+    time0.h++;
+    time0.m = min+time0.m - 60;
+  } else time0.m += min;
+
+  cout << time0.h << " "<<time0.m<<endl;
+  return time0;
+}
 
 
 
 int main() {
   Time time;
-  time.h = 1;
-  time.m = 30;
-  Time time2;
-  time2.h = 2;
-  time2.m = 10;
+  time.h = 14;
+  time.m = 45;
 
-  cout << minutesSinceMidnight(time)<<endl;
-  cout << minutesUntil(time,time2)<<endl;
-  
+  addMinutes(time, 30);
   return 0;
 }
 
