@@ -1,7 +1,8 @@
 //Name:  Sangheum Park
 //Email:  sangheum.park27@myhunter.cuny.edu
 //Date:  May 06 2022
-//asks the user for a whole number between -31 and 31 and prints out the number in "two's complement" notation,
+// Define class Customer, which as data member name and unique_id, 
+both of string type. Define default and non-default constructor, setter, and getter.
 
 #include <iostream> 
 #include <iomanip> 
