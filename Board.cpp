@@ -57,7 +57,7 @@ Board::Board(int m, int n){
   target = 32;
   max = 0;
 }
-  */
+  
 
 Board::~Board(){
   for (int i = 0; i < numRows; i++){
@@ -66,6 +66,7 @@ Board::~Board(){
   delete [] panel;
 }
 
+*/
 void Board::print() const {
   for (int i = 0; i < numRows; i++){
     for (int j = 0; j < numCols; j++){
@@ -85,7 +86,7 @@ void Board::print() const {
   }
   std::cout << "+" << '\n';
 }
-
+/*
 bool Board::noAdjacentSameValue() const {
   for (int i = 0; i < numRows; i++){
     for (int j = 0; j < numCols; j++){
@@ -140,3 +141,73 @@ void Board::selectRandomCell(int& row, int& col){
     cout << "Game over. Try again." << '\n';
   }
 }
+*/
+
+void Board::pressLeft(){
+  for (int i = 0; i < numRows; i++){
+    for (int j = 0; j < numCols; j++){
+      if(panel[i][j+1] == panel[i][j]){
+        panel[i][j] *= 2;
+        panel[i][j+1] = 0;
+      } else if(panel[i][j] == 0){
+        panel[i][j] = panel[i][j+1];
+        panel[i][j+1] = 0;
+      }
+    }
+  }
+  int row, col;
+  selectRandomCell(row, col);
+}
+
+void Board::pressRight(){
+  for (int i = 0; i < numRows; i++){
+    for (int j = numCols-1; j >0; j--){
+      if(panel[i][j] == panel[i][j-1]){
+        panel[i][j] *=2;
+        panel[i][j-1] = 0;
+      } else if(panel[i][j] == 0){
+        panel[i][j] = panel[i][j-1];
+        panel[i][j-1] = 0;
+      }
+    }
+  }
+  int row, col;
+  selectRandomCell(row, col);
+}
+
+
+void Board::pressUp(){
+  for (int j = 0; j < numCols; j++){
+    for (int i = 1; i < numRows; i++){
+      if(panel[i-1][j] == panel[i][j]){
+        panel[i-1][j] *= 2;
+        panel[i][j] = 0;
+      }else if(panel[i-1][j] == 0){
+        panel[i-1][j] = panel[i][j];
+        panel[i][j] = 0;
+      } 
+    }
+  }
+  int row, col;
+  selectRandomCell(row, col);
+}
+
+
+
+void Board::pressDown(){
+for (int j = numCols-1; j >=0; j--){
+    for (int i = numRows-1; i >0; i--){
+      if(panel[i-1][j] == panel[i][j]){
+        panel[i][j] *= 2;
+        panel[i-1][j] = 0;
+      }else if(panel[i][j] == 0){
+        panel[i][j] = panel[i-1][j];
+        panel[i-1][j] = 0;
+      } 
+    }
+  }
+  int row, col;
+  selectRandomCell(row, col);
+}
+
+
