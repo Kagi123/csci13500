@@ -70,21 +70,21 @@ Board::~Board(){
 void Board::print() const {
   for (int i = 0; i < numRows; i++){
     for (int j = 0; j < numCols; j++){
-      std::cout << "+----";
+      cout << "+----";
     }
-    std::cout << "+" << '\n';
+    cout << "+" << '\n';
 
     for (int j = 0; j < numCols; j++){
       if (panel[i][j] > 0 && panel[i][j] < 1024)
-        std::cout << "|" << std::setw(4) << panel[i][j];
-      else std::cout << "|    ";
+        cout << "|" << setw(4) << panel[i][j];
+      else cout << "|    ";
     }
-    std::cout << "|" << '\n';
+    cout << "|" << '\n';
   }
   for (int j = 0; j < numCols; j++){
-    std::cout << "+----";
+    cout << "+----";
   }
-  std::cout << "+" << '\n';
+  cout << "+" << '\n';
 }
 /*
 bool Board::noAdjacentSameValue() const {
